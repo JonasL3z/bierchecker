@@ -10,5 +10,5 @@ async def health_check() -> None:
 
 
 @app.get("/ada")
-def isadacool() -> dict:
+async def isadacool() -> dict:
     return {"is_ada_cool": True}
