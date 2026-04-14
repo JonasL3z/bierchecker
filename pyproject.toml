@@ -15,11 +15,74 @@ dev = [
     "ty==0.0.29",
 ]
 
+[tool.uv]
+exclude-newer = "3 days"
+
+[tool.ty.src]
+exclude = ["tests"]
+
 [tool.ruff]
 line-length = 150
+exclude = ["tests"]
 
 lint.select = [
-    "FAST",
-    "E",
-    "W"
+    "FAST",     # FastAPI
+    "ANN",      # type annotations
+    "ASYNC",    # async
+    "S",        # various security Rules
+    "BLE",      # blind exceptions
+    "FBT003",   # boolean kwarg instead of arg
+    "B",        # various bugs
+    "A",        # shadowing builtins
+    "COM",      # trailing comma
+    "C4",       # comprehensions
+    "DTZ",      # timezones
+    "FIX",      # fixup comments
+    "ISC",      # multiline string
+    "ICN",      # import conventions
+    "G",        # logging format
+    "INP",      # init file
+    "PIE",      # various code smells
+    "T20",      # print statements
+    "PYI",      # various code smells
+    "Q",        # quotes
+    "RSE",      # paranthesis on exception
+    "RET",      # several return issues
+    "SLF",      # private member accessed
+    "SIM",      # simplify
+    "ARG",      # unused arguments
+    "I",        # imports
+    "N",        # pep8 naming
+    "PERF",     # performance
+    "E",        # errors
+    "W",        # warnings
+    "D",        # docstrings
+    "F",        # various code smells
+    "PL",       # various code smells
+    "UP",       # deprecated language
+    "FURB",     # modernizing
+    "RUF",      # various code smells
+    "TRY",      # try-except
+    "C90",      # complexity
 ]
+
+lint.ignore = [
+    "ANN002",   # no type annotation for *args
+    "ANN003",   # no type annotation for **kwargs
+    "ANN204",   # do not require "__init__" return type annotations
+
+    "D100",     # do not require docstrings in modules
+    "D101",     # do not require docstrings in classes
+    "D102",     # do not require docstrings in methods
+    "D103",     # do not require docstrings in functions
+    "D104",     # do not require docstrings in __init__ files
+    "D105",     # do not require docstrings in __magic_methods__
+    "D106",     # do not require docstrings in nested classes
+    "D107",     # do not require docstrings in __init__ methods
+    "D415",     # do not require docstrings to end with a period
+
+    "COM812",   # do not use weird trailing comma rule
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
